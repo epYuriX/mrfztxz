@@ -1,0 +1,232 @@
+/* 不会写css, 直接上ai */
+
+/* --- 全局重置与基础样式 --- */
+:root {
+    --bg-color: #121212;
+    --panel-bg: #1e1e1e;
+    --input-bg: #2c2c2c;
+    --text-main: #ececec;
+    --text-sub: #a0a0a0;
+    --accent-color: #23ADE5; /* 明日方舟风格青色 */
+    --border-color: #333;
+    --danger-color: #e54d42;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    background: var(--bg-color);
+    margin: 0;
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-main);
+    overflow: hidden; /* 防止整个页面滚动 */
+}
+
+/* --- 布局容器 --- */
+.container1 {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* --- 左侧预览区 --- */
+.left {
+    flex: 1;
+    background-color: #000;
+    background-image: radial-gradient(#222 1px, transparent 1px);
+    background-size: 20px 20px; /*以此增加一点科技感网格背景*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 画布样式保持原有逻辑，增加阴影 */
+canvas {
+    width: 295px; /* 保持原有缩放比例 */
+    height: 590px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+canvas:hover {
+    transform: translateY(-5px);
+}
+
+/* --- 右侧编辑区 --- */
+.right {
+    width: 480px; /* 固定宽度，更像一个工具栏 */
+    min-width: 350px;
+    background-color: var(--panel-bg);
+    padding: 30px;
+    overflow-y: auto; /* 允许内部滚动 */
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+    border-left: 1px solid var(--border-color);
+}
+
+/* 滚动条美化 */
+.right::-webkit-scrollbar {
+    width: 6px;
+}
+.right::-webkit-scrollbar-track {
+    background: var(--panel-bg);
+}
+.right::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 3px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    color: var(--text-main);
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 8px;
+}
+
+/* --- 表单布局 --- */
+.container2 {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.container2 > div {
+    flex: 1;
+    min-width: 100%; /* 小屏幕下单列 */
+}
+
+/* 当屏幕足够宽时，恢复双列 */
+@media (min-width: 1400px) {
+    .container2 > div {
+        min-width: 45%;
+    }
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 6px;
+    margin-top: 12px;
+}
+
+/* 输入框统一样式 */
+input[type="text"],
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(35, 173, 229, 0.2);
+}
+
+/* 颜色选择器美化 */
+input[type="color"] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+/* 单选框区域 */
+.radio-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 10px;
+    background: var(--input-bg);
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.radio-group label {
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--text-main);
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 6px;
+    accent-color: var(--accent-color);
+}
+
+/* --- 按钮样式 --- */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* 刷新/重置按钮 */
+#shuaXin {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+#shuaXin:hover { background-color: #1a96c7; }
+
+#chongZhi {
+    background-color: transparent;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+}
+#chongZhi:hover { background-color: rgba(229, 77, 66, 0.1); }
+
+/* 导出按钮 */
+#exportPNG1, #exportPNG2 {
+    background-color: #fff;
+    color: #000;
+    margin-bottom: 5px;
+}
+#exportPNG1:hover, #exportPNG2:hover {
+    background-color: #ddd;
+    transform: translateY(-1px);
+}
+
+/* 联系作者 */
+#lianXi {
+    background-color: #333;
+    color: #888;
+}
+#lianXi:hover { background-color: #444; color: white; }

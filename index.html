@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>明日方舟通认证编辑器 - Yuri V1.0</title>
+  <link rel="icon" href="assets/icon/" type="image/png">
+  <link rel="stylesheet", href="css/main.css">
+</head>
+<body>
+<div class="container1">
+  <div class="left">
+    <canvas id="canvas01" width="590" height="1180"></canvas>
+    <canvas id="canvas02" width="590" height="1180"></canvas>
+  </div>
+  <div class="right">
+    <h2>明日方舟通认证编辑器 <span style="font-size:0.6em; opacity:0.5; font-weight:normal;">Yuri V1.0</span></h2>
+    <div class="container2">
+      <div class="col-1">
+        <h3>基本信息</h3>
+        <label for="left_title">主标题</label>
+        <input id="left_title" type="text" placeholder="请输入标题...">
+        <label for="xz4">右小字</label>
+        <input id="xz4" type="text">
+        <label for="name1">角色名</label>
+        <input id="name1" type="text">
+        <label for="arknights1">编号</label>
+        <input id="arknights1" type="text">
+        <label for="staff">STAFF</label>
+        <input id="staff" type="text">
+        <h3>详情配置</h3>
+        <label for="xz1">下方小字 1</label>
+        <input id="xz1" type="text">
+        <label for="xz2">下方小字 2</label>
+        <input id="xz2" type="text">
+        <label for="xz3">下方小字 3</label>
+        <input id="xz3" type="text">
+        <label for="seProfession">选择职业</label>
+        <select id="seProfession"></select>
+        <label for="seFaction">选择阵营</label>
+        <select id="seFaction"></select>
+        <label for="imageUpload" style="cursor: pointer; margin-top:20px;">
+          <div style="background:var(--input-bg); border:1px dashed #666; padding:15px; text-align:center; border-radius:4px;">
+            上传角色图片 (点击)
+          </div>
+        </label>
+        <input id="imageUpload" type="file" accept="image/*" style="display:none;" onchange="this.previousElementSibling.querySelector('div').innerText = this.files[0].name">
+        <h3>操作 // 修改后请先刷新</h3>
+        <button id="shuaXin">⟳ 刷新预览</button>
+        <button id="chongZhi">⚠ 重置所有</button>
+        <h3>导出</h3>
+        <button id="exportPNG1">↓ 导出正面模板 .PNG</button>
+        <button id="exportPNG2">↓ 导出背面模板 .PNG</button>
+        <div style="margin-top: 20px; border-top: 1px solid #333; padding-top: 10px;">
+          <button id="lianXi">✉ 联系作者</button>
+        </div>
+      </div>
+      <div class="col-2">
+        <h3>背面信息</h3>
+        <label for="xzb1">背面小字 1</label>
+        <input id="xzb1" type="text">
+        <label for="xzb2">背面小字 2</label>
+        <input id="xzb2" type="text">
+        <label for="xzb3">背面小字 3</label>
+        <input id="xzb3" type="text">
+        <label for="xzb4">左侧标识</label>
+        <input id="xzb4" type="text">
+        <h3>视觉样式</h3>
+        <label>渐变色开关</label>
+        <div class="radio-group">
+          <label><input type="radio" name="jianBianVisible" value="t" checked> 显示</label>
+          <label><input type="radio" name="jianBianVisible" value="f"> 隐藏</label>
+        </div>
+        <label for="jian_bian">渐变色选择</label>
+        <input id="jian_bian" type="color" value="#00bfff">
+        <label style="margin-top:15px;">挡板开关</label>
+        <div class="radio-group">
+          <label><input type="radio" name="dangBanVisible" value="t" checked> 显示</label>
+          <label><input type="radio" name="dangBanVisible" value="f"> 隐藏</label>
+        </div>
+        <label for="dang_ban">精一挡板颜色</label>
+        <input id="dang_ban" type="color" value="#8a60ab">
+        <label for="bei_ying">角色背影颜色</label>
+        <input id="bei_ying" type="color" value="#fff1b9">
+        <label style="margin-top:15px;">Logo 开关</label>
+        <div class="radio-group">
+          <label><input type="radio" name="logoVisible" value="t" checked> 显示</label>
+          <label><input type="radio" name="logoVisible" value="f"> 隐藏</label>
+        </div>
+        <label>切割线开关</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cutVisible" value="t" checked> 显示</label>
+          <label><input type="radio" name="cutVisible" value="f"> 隐藏</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="main.js" type="module"></script>
+</body>
+</html>
