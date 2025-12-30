@@ -11,6 +11,10 @@ imageUpload.addEventListener("change", (e) => {
   if (!file) return;
   const url = URL.createObjectURL(file);
   replaceImage("assets/layers/tuPian.png", url);
+  setTimeout(() => {
+    readTemplate(template, "ctx01");
+    readTemplate(back, "ctx02");
+  }, 200);
 });
 export const runtimeImageMap = {}; // 运行时图片映射表
 function replaceImage(originalSrc, newSrc) {

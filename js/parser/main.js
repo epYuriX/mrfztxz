@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   readTemplate(template, "ctx01");
   setTimeout(() => {
     readTemplate(back, "ctx02");
-  }, 100);
+  }, 200);
 });
 
 // readTemplate(template, "ctx01");

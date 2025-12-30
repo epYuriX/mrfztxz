@@ -51,14 +51,14 @@ canvas {
     height: 590px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
-    transition: transform 0.3s ease;
+    /*transition: transform 0.3s ease;*/
     background: #000;
 }
 
 
 @media (hover: hover) {
     canvas:hover {
-        transform: translateY(-5px);
+        /*transform: translateY(-5px);*/
     }
 }
 

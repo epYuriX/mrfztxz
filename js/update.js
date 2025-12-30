@@ -7,4 +7,16 @@ document.getElementById("shuaXin").onclick = () => {
 }
 document.getElementById("chongZhi").onclick = () => {
   location.reload();
+  setTimeout(() => {
+    readTemplate(back, "ctx02");
+    console.log("1")
+  }, 200);
 }
+
+window.onload = () => {
+  setTimeout(() => {
+    readTemplate(template, "ctx01");
+    readTemplate(back, "ctx02");
+    console.log("1")
+  }, 200);
+};
