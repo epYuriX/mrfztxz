@@ -1,6 +1,5 @@
 /* 不会写css 直接ai */
 
-/* --- 全局变量与重置 --- */
 :root {
     --bg-color: #121212;
     --panel-bg: #1e1e1e;
@@ -12,72 +11,84 @@
     --danger-color: #e54d42;
 }
 
-* { box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
+* {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
 body {
     background: var(--bg-color);
     margin: 0;
     font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
     color: var(--text-main);
-    /* 默认桌面端不滚动，由内部容器滚动 */
     overflow: hidden;
 }
 
-/* --- 布局容器 --- */
 .container1 {
     display: flex;
     height: 100vh;
     width: 100vw;
 }
 
-/* --- 左侧预览区 (桌面) --- */
 .left {
     flex: 1;
     background-color: #000;
     background-image: radial-gradient(#222 1px, transparent 1px);
     background-size: 20px 20px;
     display: flex;
-    justify-content: center; /* 居中画布 */
+    justify-content: center;
     align-items: center;
     padding: 20px;
     overflow: hidden;
     position: relative;
-    flex-wrap: wrap; /* 允许画布换行 */
+    flex-wrap: wrap;
     gap: 20px;
 }
 
 canvas {
-    width: 295px; /* 默认显示宽度 */
+    width: 295px;
     height: 590px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
     transition: transform 0.3s ease;
-    background: #000; /* 防止画布加载前全透明 */
+    background: #000;
 }
 
-/* 简单的悬停动效，手机端禁用 */
+
 @media (hover: hover) {
-    canvas:hover { transform: translateY(-5px); }
+    canvas:hover {
+        transform: translateY(-5px);
+    }
 }
 
-/* --- 右侧编辑区 (桌面) --- */
+
 .right {
     width: 720px;
     min-width: 350px;
     background-color: var(--panel-bg);
     padding: 30px;
     overflow-y: auto;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
     border-left: 1px solid var(--border-color);
     padding-bottom: 50px; /* 底部留白 */
 }
 
-/* 滚动条美化 */
-.right::-webkit-scrollbar { width: 6px; }
-.right::-webkit-scrollbar-track { background: var(--panel-bg); }
-.right::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
 
-/* --- 标题与排版 --- */
+.right::-webkit-scrollbar {
+    width: 6px;
+}
+
+.right::-webkit-scrollbar-track {
+    background: var(--panel-bg);
+}
+
+.right::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 3px;
+}
+
+
 h2 {
     font-size: 1.2rem;
     margin-bottom: 20px;
@@ -96,16 +107,24 @@ h3 {
     padding-left: 8px;
 }
 
-/* --- 表单布局 --- */
+
 .container2 {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-/* 桌面端大屏时双列，小屏单列 */
-.container2 > div { flex: 1; min-width: 100%; }
-@media (min-width: 1400px) { .container2 > div { min-width: 45%; } }
+
+.container2 > div {
+    flex: 1;
+    min-width: 100%;
+}
+
+@media (min-width: 1400px) {
+    .container2 > div {
+        min-width: 45%;
+    }
+}
 
 label {
     display: block;
@@ -117,12 +136,12 @@ label {
 
 input[type="text"], select, input[type="file"] {
     width: 100%;
-    padding: 12px; /* 加大触控区域 */
+    padding: 12px;
     background-color: var(--input-bg);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     color: white;
-    font-size: 0.95rem; /* 增大字号防止iOS缩放 */
+    font-size: 0.95rem;
     transition: border-color 0.2s;
 }
 
@@ -130,7 +149,7 @@ input[type="text"]:focus, select:focus {
     border-color: var(--accent-color);
 }
 
-/* 颜色选择器 */
+
 input[type="color"] {
     width: 100%;
     height: 44px; /* 增加高度 */
@@ -141,7 +160,7 @@ input[type="color"] {
     cursor: pointer;
 }
 
-/* 开关组 */
+
 .radio-group {
     display: flex;
     gap: 15px;
@@ -150,13 +169,22 @@ input[type="color"] {
     border-radius: 4px;
     border: 1px solid var(--border-color);
 }
-.radio-group label { margin: 0; display: flex; align-items: center; color: var(--text-main); }
-.radio-group input { margin-right: 8px; transform: scale(1.2); }
 
-/* --- 按钮样式 --- */
+.radio-group label {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    color: var(--text-main);
+}
+
+.radio-group input {
+    margin-right: 8px;
+    transform: scale(1.2);
+}
+
 button {
     width: 100%;
-    padding: 14px; /* 更大的按钮 */
+    padding: 14px;
     margin-top: 12px;
     border: none;
     border-radius: 4px;
@@ -169,69 +197,87 @@ button {
     overflow: hidden;
 }
 
-#shuaXin { background-color: var(--accent-color); color: #fff; }
-#shuaXin:active { background-color: #1a96c7; transform: scale(0.98); }
+#shuaXin {
+    background-color: var(--accent-color);
+    color: #fff;
+}
 
-#chongZhi { background: transparent; border: 1px solid var(--danger-color); color: var(--danger-color); }
-#chongZhi:active { background: rgba(229, 77, 66, 0.1); }
+#shuaXin:active {
+    background-color: #1a96c7;
+    transform: scale(0.98);
+}
 
-#exportPNG1, #exportPNG2 { background-color: #eee; color: #111; margin-bottom: 8px; }
-#exportPNG1:active, #exportPNG2:active { background-color: #ccc; }
+#chongZhi {
+    background: transparent;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+}
 
-#lianXi { background-color: #333; color: #aaa; }
+#chongZhi:active {
+    background: rgba(229, 77, 66, 0.1);
+}
 
-/* =========================================
-   ★★★ 移动端核心适配代码 (Media Queries) ★★★
-   ========================================= */
+#exportPNG1, #exportPNG2 {
+    background-color: #eee;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+#exportPNG1:active, #exportPNG2:active {
+    background-color: #ccc;
+}
+
+#lianXi, #github {
+    background-color: #333;
+    color: #aaa;
+}
+
 @media (max-width: 900px) {
     body {
-        overflow-y: auto; /* 恢复页面级滚动 */
+        overflow-y: auto;
         overflow-x: hidden;
     }
 
     .container1 {
-        flex-direction: column; /* 上下布局 */
-        height: auto; /* 高度自适应内容 */
+        flex-direction: column;
+        height: auto;
         width: 100%;
     }
 
-    /* 预览区调整 */
     .left {
         width: 100%;
         height: auto;
         padding: 30px 10px;
         flex-shrink: 0;
         background-size: 15px 15px;
-        /* 在手机上，让画布水平排列并支持横向滚动，或者垂直堆叠 */
-        /* 这里采用 flex-wrap 居中堆叠的方式，最稳妥 */
         gap: 30px;
     }
 
     canvas {
-        /* 画布自适应屏幕，但保持最大宽度，防止溢出 */
+
         max-width: 90vw;
-        height: auto; /* 保持比例 */
-        aspect-ratio: 295/590; /* 锁定比例，防止抖动 */
+        height: auto;
+        aspect-ratio: 295/590;
     }
 
-    /* 编辑区调整 */
     .right {
         width: 100%;
         height: auto;
-        overflow: visible; /* 让内容撑开高度 */
+        overflow: visible;
         border-left: none;
         border-top: 1px solid var(--border-color);
-        padding: 20px 15px 60px 15px; /* 增加底部留白 */
+        padding: 20px 15px 60px 15px;
     }
 
-    h2 { font-size: 1.1rem; text-align: center; }
+    h2 {
+        font-size: 1.1rem;
+        text-align: center;
+    }
 
-    /* 优化输入框在手机上的体验 */
     input[type="text"], select {
-        font-size: 16px; /* 16px是iOS防止页面放大的临界值 */
+        font-size: 16px;
     }
 
-    /* 调整按钮点击反馈 */
     button:active {
         opacity: 0.8;
     }
